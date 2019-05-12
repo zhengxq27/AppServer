@@ -14,7 +14,10 @@ import java.util.ArrayList;
 @Repository
 public interface UserMapper {
     @Select("SELECT * FROM Person WHERE id = #{id}")
-    Person selectUser(int id);
+    Person selectUser(Long id);
+
+    @Select("SELECT * FROM Person WHERE name = #{name}")
+    Person selectUserByName(String name);
 
     @Select("select * from person order by id")
     ArrayList<Person> selectAllUser();//返回一个person对象
