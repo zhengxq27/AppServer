@@ -1,5 +1,6 @@
 package com.zgl.swsad.service;
 
+
 import com.zgl.swsad.mapper.UserMapper;
 import com.zgl.swsad.model.Person;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +14,12 @@ public class UserService {
     UserMapper userMapper;
 
     // 获取单个用户信息
-    public Person selectUser(int id) {
+    public Person selectUser(Long id) {
         return userMapper.selectUser(id);
+    }
+
+    public Person selectUserByname(String name) {
+        return userMapper.selectUserByName(name);
     }
 
     //获取所有的用户信息

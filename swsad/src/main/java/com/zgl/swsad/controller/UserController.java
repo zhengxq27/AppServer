@@ -20,8 +20,10 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    //解决跨域问题
+    @CrossOrigin
     @RequestMapping(value = "/Users/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ResponseEntity<Object> queryUser (@PathVariable int id){
+    public ResponseEntity<Object> queryUser (@PathVariable Long id){
         Person p = userService.selectUser(id);
         if(p == null)
         {
@@ -37,6 +39,7 @@ public class UserController {
     }
 
     //https://blog.csdn.net/justry_deng/article/details/80972817，注意requestParm注解的使用方法不同
+    @CrossOrigin
     @RequestMapping(value = "/Users", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public Object createUser (@RequestBody Person person){
         return userService.insertUser(person);
