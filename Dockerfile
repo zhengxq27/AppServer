@@ -24,4 +24,4 @@ ENTRYPOINT ["catalina.sh","run"]
 #   CMD nc -z localhost 5198 >/dev/null || exit 1
 
 #拷贝jar包到tomcat中
-COPY target/swsad-0.0.1-SNAPSHOT.jar ${CATALINA_HOME}/webapps/
+COPY /root/swsad/yxq/target/swsad-0.0.1-SNAPSHOT.jar ${CATALINA_HOME}/webapps/
