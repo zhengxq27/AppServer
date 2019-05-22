@@ -14,6 +14,7 @@ public class ErrandService {
 
     //获取
     public  Errand selectErrand(int id){return errandMapper.selectErrand(id);}
+    public Errand selectErrandByTaskID(int id) {return errandMapper.selectErrandByTaskID(id);}
 
     //调整
     public int updateErrand(Errand errand){return errandMapper.updateErrand(errand);}
@@ -21,4 +22,3 @@ public class ErrandService {
     //删除
     public int deleteErrand(int id){return errandMapper.deleteErrand(id);}
 }
-

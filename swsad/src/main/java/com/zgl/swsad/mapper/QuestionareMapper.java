@@ -14,7 +14,10 @@ public interface QuestionareMapper {
     @Update("UPDATE questionare set taskId=#{taskId}, questionNum=#{questionNum} where questionareId=#{questionareId}")
     int updateQuestionare(Questionare questionare);
 
-    @Select("SELECT * FROM question WHERE questionareId = #{questionareId}")
+    @Select("SELECT * FROM question WHERE taskId = #{taskId}")
+    Questionare selectQuestionareByTaskID(int id);//这里的id是taskid
+
+    @Select("SELECT * FROM question WHERE questionId = #{questionId}")
     Questionare selectQuestionare(int id);
 
     @Delete("DELETE FROM questionare WHERE questionareId = #{questionareId}")

@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class QuestionareService {
-
     @Autowired
     QuestionareMapper questionareMapper;
 
@@ -16,6 +15,7 @@ public class QuestionareService {
 
     //获取
     public Questionare selectQuestionare(int id) { return questionareMapper.selectQuestionare(id);}
+    public Questionare selectQuestionareByTaskID(int id){return questionareMapper.selectQuestionareByTaskID(id);}
 
     //调整
     public int updateQuestionare(Questionare questionare) { return questionareMapper.updateQuestionare(questionare);}

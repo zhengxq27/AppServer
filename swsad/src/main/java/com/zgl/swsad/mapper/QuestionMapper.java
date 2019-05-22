@@ -7,6 +7,9 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 @Repository
 public interface QuestionMapper {
     @Insert("INSERT INTO question (questionType, question, answer, choiceNum, choiceStr, questionareId)" +
@@ -16,10 +19,12 @@ public interface QuestionMapper {
     @Update("UPDATE question set questionType=#{questionType}, question=#{question},answer=#{answer}, choiceNum=#{choiceNum},choiceStr=#{choiceStr},questionareId=#{questionareId} where questionId=#{questionId}")
     int updateQuestion(Question question);
 
-    @Select("SELECT * FROM question WHERE questionId = #{questionId}")
+    @Select("SELECT * FROM question WHERE quesionareId = #{questionareId}")
+    ArrayList<Question> selectQuestionByQuestionareID(int id);//id 是questionare的id
+
+    @Select("SELECT * FROM question WHERE quesionId = #{questionId}")
     Question selectQuestion(int id);
 
     @Delete("DELETE FROM question WHERE questionId = #{questionId}")
     int deleteQuestion(int id);
 }
-
